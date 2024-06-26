@@ -1,4 +1,4 @@
-@extends('templates.base')
+@extends('base.base')
 
 @section('content')
     <div>
