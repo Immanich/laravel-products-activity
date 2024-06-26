@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,10 +18,13 @@ use App\Http\Controllers\ProductController;
 //     return view('welcome');
 // });
 
-Route::get('/', function() { return view('pages.home');});
-Route::get('/about', function() { return view('pages.about');});
-Route::get('/product', function() { return view('pages.products');});
-Route::get('/contact', function() { return view('pages.contact');});
+Route::get('/', function() { 
+    return view('home');
+});
+
+Route::get('/about', function() { return view('about');});
+Route::get('/product', function() { return view('products');});
+Route::get('/contact', function() { return view('contact');});
 
 Route::get('/open', [ProductController::class, 'open']);
 

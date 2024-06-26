@@ -18,18 +18,17 @@ class ProductController extends Controller
          $html = "";
 
          foreach($products->get() as $prod) {
+            $formattedPrice = number_format($prod->price, 2);
             $html .= "
-        <div class='p-4 rounded bg-blue-200 flex items-center'>
-        
-            <div class='w-6/4 pl-4'>
-                <h2 class='text-xl font-bold'>Name: {$prod->name}</h2>
-                <p>Description: {$prod->description}</p>
-                <p class='text-green-500 font-semibold'>Price: ₱{$prod->price}</p>
-                <p class='text-green-500 font-semibold'>Quantity: {$prod->quantity}</p>
+            <div class='p-4 rounded bg-blue-200 w-[20rem]'>
+                <h3 class=''>Name: $prod->name</h3>
+                <hr class='m-2'>
+                <div class=''>Description: $prod->description</div>
+                <div class=''>Price: ₱$formattedPrice</div>
+                <div class=''>Quantity: $prod->quantity</div>
             </div>
-        </div>
-    ";
-         }
+            ";
+        }
          return $html;
     }
 
@@ -54,24 +53,20 @@ class ProductController extends Controller
         $products = Product::orderBy('id');
 
       
-
-         $html = "";
-
-         foreach($products->get() as $prod) {
-            $html .= "
-        <div class='p-4 rounded bg-blue-200 flex items-center'>
+        $html = "";
         
-            <div class='w-3/45 pl-4'>
-                <h2 class='text-xl font-bold'>Name: {$prod->name}</h2>
-                <p>Description: {$prod->description}</p>
-                <p class='text-green-500 font-semibold'>Price: ₱{$prod->price}</p>
-                <p class='text-green-500 font-semibold'>Quantity: {$prod->quantity}</p>
+        foreach($products->get() as $prod) {
+            $formattedPrice = number_format($prod->price, 2);
+            $html .= "
+            <div class='p-4 rounded bg-blue-200 w-[20rem]'>
+                <h3 class=''>Name: $prod->name</h3>
+                <hr class='m-2'>
+                <div class=''>Description: $prod->description</div>
+                <div class=''>Price: ₱$formattedPrice</div>
+                <div class=''>Quantity: $prod->quantity</div>
             </div>
-        </div>
-
-        <div hx-swap-oob='true' id='success' class='bg-green-200 text-center m-2 rounded'>
-        Product Successfully Added!
-   
+            <div hx-swap-oob='true' id='success' class='bg-green-200 text-center m-2 rounded'>
+            Product Successfully Added!
         </div>
        
      

@@ -1,4 +1,4 @@
-@extends('templates.base')
+@extends('base.base')
 
 @section('content')
 
@@ -19,26 +19,26 @@
   
         </div>
     <hr class="my-4">
-    <div id="products-list" class="flex flex-wrap gap-3" hx-get="/api/products" hx-trigger="load" hx-swap="innerHTML"></div>
+    <div 
+        id="products-list" 
+        class="flex flex-wrap justify-center gap-3 mt-3" 
+        hx-get="/api/products" 
+        hx-trigger="load" 
+        hx-swap="innerHTML">
+    </div>
 
-    <div id="myModal" class="modal fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden">
+    <div id="myModal" class="modal fixed inset-0 flexbg-black bg-opacity-50 hidden">
         <div class="modal-content bg-white p-6 rounded-lg shadow-lg w-full max-w-md" hx-get="/open" hx-trigger="load" hx-swap="innerHTML">
           
         </div>
     </div>
 </div>
-
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-
     document.getElementById("openModalBtn").addEventListener('click', function() {
-
     var modal = document.getElementById("myModal");
-
     modal.classList.remove("hidden");
-
     });
-
 });
     
 function closeModal() {
